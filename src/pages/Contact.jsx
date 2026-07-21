@@ -196,7 +196,7 @@ const Contact = () => {
                           type="tel"
                           value={formData.phone}
                           onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                          placeholder="+250..."
+                          placeholder="+237..."
                           className="form-input"
                         />
                       </div>

@@ -32,12 +32,12 @@ export const COMPANY_INFO = {
   ],
 
   contact: {
-    address: "Bongbine Corporate Tower, Suite 400, Business District, Kigali, Rwanda",
-    phone1: "+250 788 123 456",
-    phone2: "+250 788 654 321",
-    whatsapp: "+250788123456",
-    email: "info@bongbine.com",
-    contactEmail: "contact@bongbine.com",
+    address: "Bongbine Corporate Tower, Suite 400, Business District, Douala, Cameroon",
+    phone1: "+237 676299358",
+    phone2: "+237 676299358",
+    whatsapp: "237676299358",
+    email: "bongbineltd@gmail.com",
+    contactEmail: "bongbineltd@gmail.com",
     hours: "Monday - Friday: 8:00 AM - 5:00 PM | Saturday: 9:00 AM - 1:00 PM",
     socials: {
       linkedin: "https://linkedin.com/company/bongbine-ltd",
