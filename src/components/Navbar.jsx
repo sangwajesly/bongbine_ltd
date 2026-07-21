@@ -1,54 +1,101 @@
-import { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
-import { Menu, X } from "lucide-react";
-import { navLinks } from "../data/content";
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { Menu, X, ArrowRight } from 'lucide-react';
+import Logo from './Logo';
+
+const navLinks = [
+  { name: 'Home', path: '/' },
+  { name: 'About', path: '/about' },
+  { name: 'Services', path: '/services' },
+  { name: 'Our Business', path: '/our-business' },
+  { name: 'Contact', path: '/contact' },
+];
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 30) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    setMobileMenuOpen(false);
+  }, [location.pathname]);
 
   return (
-    <header className="site-header">
-      <div className="container nav-shell">
-        <Link to="/" className="brand" onClick={() => setIsOpen(false)}>
-          <span className="brand__mark">B</span>
-          <span>
-            <strong>Bongbine</strong>
-            <small>Ltd.</small>
-          </span>
-        </Link>
+    <header className={`site-header ${isScrolled ? 'scrolled' : ''}`}>
+      <div className="container nav-container">
+        {/* Logo */}
+        <Logo light={false} />
 
-        <button
-          className="menu-toggle"
-          type="button"
-          aria-label="Toggle navigation"
-          aria-expanded={isOpen}
-          onClick={() => setIsOpen((open) => !open)}
-        >
-          {isOpen ? <X size={20} /> : <Menu size={20} />}
-        </button>
+        {/* Desktop Nav */}
+        <ul className="nav-menu">
+          {navLinks.map((link) => {
+            const isActive = location.pathname === link.path;
+            return (
+              <li key={link.path}>
+                <Link
+                  to={link.path}
+                  className={`nav-link ${isActive ? 'active' : ''}`}
+                >
+                  {link.name}
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
 
-        <nav
-          className={`site-nav ${isOpen ? "open" : ""}`}
-          aria-label="Primary navigation"
-        >
-          {navLinks.map((link) => (
-            <NavLink
-              key={link.path}
-              to={link.path}
-              className={({ isActive }) => (isActive ? "active" : "")}
-              onClick={() => setIsOpen(false)}
-            >
-              {link.name}
-            </NavLink>
-          ))}
-          <Link
-            to="/contact"
-            className="button button--primary nav-cta"
-            onClick={() => setIsOpen(false)}
-          >
+        {/* Desktop CTA */}
+        <div className="desktop-cta">
+          <Link to="/contact" className="btn-primary">
             Contact Us
+            <ArrowRight size={16} />
           </Link>
-        </nav>
+        </div>
+
+        {/* Mobile Toggle */}
+        <button
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          className="mobile-toggle"
+          aria-label="Toggle Menu"
+        >
+          {mobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
+        </button>
+      </div>
+
+      {/* Mobile Drawer */}
+      <div className={`mobile-drawer ${mobileMenuOpen ? 'open' : ''}`}>
+        <ul className="mobile-nav-list">
+          {navLinks.map((link) => {
+            const isActive = location.pathname === link.path;
+            return (
+              <li key={link.path}>
+                <Link
+                  to={link.path}
+                  className={`mobile-nav-link ${isActive ? 'active' : ''}`}
+                >
+                  {link.name}
+                </Link>
+              </li>
+            );
+          })}
+          <li style={{ paddingTop: '0.75rem' }}>
+            <Link to="/contact" className="btn-primary" style={{ width: '100%' }}>
+              Contact Us
+              <ArrowRight size={16} />
+            </Link>
+          </li>
+        </ul>
       </div>
     </header>
   );
