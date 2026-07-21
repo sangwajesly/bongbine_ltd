@@ -26,7 +26,7 @@ const Home = () => {
               className="hero-badge"
             >
               <span className="hero-badge-dot" />
-              Corporate Digital Profile
+              Infrastructure & Commerce Group
             </motion.div>
 
             <motion.h1

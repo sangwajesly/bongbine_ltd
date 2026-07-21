@@ -120,7 +120,7 @@ const Footer = () => {
         <div className="footer-bottom">
           <p>© {new Date().getFullYear()} Bongbine Ltd. All rights reserved.</p>
           <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-            <span>Corporate Resume Profile</span>
+            <span>Bongbine Ltd</span>
             <span>•</span>
             <span style={{ color: 'var(--orange)' }}>Where Business Meets Family</span>
           </div>

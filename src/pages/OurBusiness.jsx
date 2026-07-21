@@ -32,9 +32,9 @@ const OurBusiness = () => {
   return (
     <div>
       <PageHero
-        title="Our Business Profile"
+        title="Our Operations & Structure"
         subtitle="Exploring the operational structure, multi-sector capabilities, and commercial strength of Bongbine Ltd."
-        badge="Commercial Profile"
+        badge="Bongbine Ltd"
         bgImage="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1920&q=80"
       />
 

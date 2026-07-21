@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const PageHero = ({ title, subtitle, bgImage, badge = "Bongbine Corporate Profile" }) => {
+const PageHero = ({ title, subtitle, bgImage, badge = "Bongbine Ltd" }) => {
   const defaultBg = "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920&q=80";
 
   return (
