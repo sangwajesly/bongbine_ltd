@@ -18,9 +18,9 @@ const Services = () => {
       />
 
       {/* Navigation Pills */}
-      <section style={{ backgroundColor: 'var(--navy)', borderTop: '1px solid rgba(255,255,255,0.1)', padding: '1.25rem 0', position: 'sticky', top: '64px', zIndex: 30 }}>
+      <section style={{ backgroundColor: 'var(--navy)', borderTop: '1px solid rgba(255,255,255,0.1)', padding: '1.25rem 0', position: 'sticky', top: '74px', zIndex: 30 }}>
         <div className="container">
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexWrap: 'wrap', gap: '0.75rem' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', overflowX: 'auto', paddingBottom: '0.5rem', scrollbarWidth: 'none', msOverflowStyle: 'none' }} className="hide-scrollbar">
             {BUSINESS_DIVISIONS.map((div) => (
               <a
                 key={div.id}
@@ -35,7 +35,9 @@ const Services = () => {
                   fontFamily: 'var(--font-heading)',
                   fontWeight: '600',
                   transition: 'all 0.2s ease',
-                  textDecoration: 'none'
+                  textDecoration: 'none',
+                  whiteSpace: 'nowrap',
+                  flexShrink: 0
                 }}
                 onMouseEnter={(e) => { e.target.style.backgroundColor = 'var(--orange)'; e.target.style.color = '#fff'; e.target.style.borderColor = 'var(--orange)'; }}
                 onMouseLeave={(e) => { e.target.style.backgroundColor = 'rgba(255,255,255,0.1)'; e.target.style.color = '#E2E8F0'; e.target.style.borderColor = 'rgba(255,255,255,0.15)'; }}

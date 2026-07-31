@@ -53,18 +53,24 @@ const About = () => {
         <div className="container">
           <div className="ceo-card">
             <div className="ceo-grid">
-              <div className="ceo-avatar-wrapper">
-                <svg className="ceo-avatar-svg" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
-                </svg>
+              <div className="ceo-image-wrapper">
+                <img src="/ceo.png" alt={COMPANY_INFO.ceo.name} className="ceo-image" />
               </div>
-              <div>
-                <span className="section-eyebrow">Executive Leadership</span>
+              <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                <span className="section-eyebrow" style={{ marginBottom: '0.25rem' }}>Executive Leadership</span>
                 <h3 className="ceo-name">{COMPANY_INFO.ceo.name}</h3>
                 <p className="ceo-title">{COMPANY_INFO.ceo.title}</p>
                 <blockquote className="ceo-quote">
                   "{COMPANY_INFO.ceo.quote}"
                 </blockquote>
+                <div className="ceo-signature-section">
+                  <p style={{ fontSize: '0.92rem', color: 'var(--navy)', fontWeight: '700', margin: 0, letterSpacing: '0.02em' }}>
+                    Active Field Oversight & Operational Excellence
+                  </p>
+                  <p style={{ fontSize: '0.82rem', color: 'var(--muted-text)', fontWeight: '500', margin: 0 }}>
+                    Bongbine Ltd Management Committee
+                  </p>
+                </div>
               </div>
             </div>
           </div>
