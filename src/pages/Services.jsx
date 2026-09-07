@@ -11,7 +11,7 @@ const Services = () => {
         title="Our Services"
         subtitle="Comprehensive infrastructure, supply chain, real estate, and global trade capabilities built on dependable execution."
         badge="Bongbine Ltd"
-        bgImage="/images/entrepreneur-drafting-architectural-blueprints-planning-office-relocation.jpg"
+        bgImage="/images/contruction-site.jpg"
       />
 
       {/* Navigation Sticky Bar */}

@@ -138,7 +138,7 @@ export const BUSINESS_DIVISIONS = [
       "Tenant & Estate Relations Management",
     ],
     image:
-      "/images/aerial-view-rural-landscape-crops-field.jpg",
+      "/images/contruction-site.jpg",
     iconName: "Building2",
   },
   {
@@ -155,7 +155,7 @@ export const BUSINESS_DIVISIONS = [
       "Site Preparation & Structural Frameworks",
     ],
     image:
-      "/images/aerial-view-construction-site-with-excavator-trucks-near-waterfront-homes.jpg",
+      "/images/construction-worker-onsite.jpg",
     iconName: "HardHat",
   },
   {
@@ -172,7 +172,7 @@ export const BUSINESS_DIVISIONS = [
       "Quality Certification & Bulk Supply Logistics",
     ],
     image:
-      "/images/entrepreneur-drafting-architectural-blueprints-planning-office-relocation.jpg",
+      "/images/building-materials--cement.jpg",
     iconName: "Boxes",
   },
   {
@@ -189,7 +189,7 @@ export const BUSINESS_DIVISIONS = [
       "Warehousing & Inventory Transfer",
     ],
     image:
-      "/images/small-business-owner-analyzing-architectural-sketches-planning-office-spaces.jpg",
+      "/images/transport-and-logistics.jpg",
     iconName: "Truck",
   },
   {
@@ -206,7 +206,7 @@ export const BUSINESS_DIVISIONS = [
       "International Trade Contracting",
     ],
     image:
-      "/images/set-designer-work-indoors.jpg",
+      "/images/Import-export.jpg",
     iconName: "Globe",
   },
 ];

@@ -73,7 +73,7 @@ const Home = () => {
             style={{ position: 'absolute', inset: 0 }}
           >
             <img 
-              src="/images/small-business-owner-analyzing-architectural-sketches-planning-office-spaces.jpg"
+              src="/images/conruction-company-staffs.jpg"
               alt="Bongbine Infrastructure" 
               style={{ width: '100%', height: '100%', objectFit: 'cover' }}
             />
@@ -88,7 +88,7 @@ const Home = () => {
             <div style={{ position: 'relative' }}>
               <RevealImage>
                 <img 
-                  src="/images/set-designer-work-indoors.jpg" 
+                  src="/images/workers-on-site.jpg" 
                   alt="Corporate Building" 
                   style={{ width: '100%', height: '600px', objectFit: 'cover' }}
                 />

@@ -10,7 +10,7 @@ const About = () => {
         title="About Bongbine Ltd"
         subtitle="A corporate enterprise built on trust, professional expertise, and long-term partnership."
         badge="Bongbine Ltd"
-        bgImage="/images/aerial-view-rural-landscape-crops-field.jpg"
+        bgImage="/images/workers-on-site.jpg"
       />
 
       {/* 1. ABOUT BONGBINE (EDITORIAL OFFSET) */}
