@@ -14,7 +14,7 @@ const Footer = () => {
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
             <Logo light={true} />
             <p style={{ color: '#94A3B8', fontSize: '0.9rem', lineHeight: '1.6', marginTop: '0.5rem' }}>
-              {COMPANY_INFO.aboutParagraph1.substring(0, 145)}...
+              {COMPANY_INFO.aboutParagraph1}
             </p>
             <div style={{ marginTop: '0.5rem' }}>
               <span style={{ color: 'var(--orange)', fontWeight: '600', fontSize: '0.9rem', fontStyle: 'italic', fontFamily: 'var(--font-heading)' }}>

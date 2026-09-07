@@ -1,380 +1,104 @@
-import React, { useState } from "react";
-import { motion } from "framer-motion";
-import {
-  Phone,
-  Mail,
-  MapPin,
-  Clock,
-  MessageSquare,
-  Send,
-  CheckCircle2,
-  ArrowUpRight,
-} from "lucide-react";
-import PageHero from "../components/PageHero";
-import { COMPANY_INFO } from "../data/companyData";
+import React from 'react';
+import { COMPANY_INFO } from '../data/companyData';
+import PageHero from '../components/PageHero';
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    subject: "Real Estate",
-    message: "",
-  });
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (formData.name && formData.email && formData.message) {
-      setSubmitted(true);
-    }
-  };
-
   return (
     <div>
-      {/* Page Hero */}
       <PageHero
-        title="Contact Us"
-        subtitle="Get in touch with Bongbine Ltd. We welcome inquiries, business partnerships, and client engagements."
-        badge="Bongbine Ltd"
-        bgImage="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920&q=80"
+        title="Contact Bongbine"
+        subtitle="Connect with our specialists for integrated real estate, construction, logistics, and trade solutions."
+        badge="Get In Touch"
       />
 
-      <section
-        className="section-padding"
-        style={{ backgroundColor: "var(--white)" }}
-      >
+      <section className="py-loose" style={{ backgroundColor: 'var(--white)' }}>
         <div className="container">
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(360px, 1fr))",
-              gap: "3rem",
-            }}
-          >
-            {/* Contact Details & Info Cards */}
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                gap: "1.5rem",
-              }}
-            >
-              <div>
-                <span className="section-eyebrow">Reach Out Directly</span>
-                <h2
-                  className="section-title-text"
-                  style={{ fontSize: "2.25rem" }}
-                >
-                  Let's Connect
-                </h2>
-                <p style={{ color: "var(--muted-text)", fontSize: "1rem" }}>
-                  Our team is ready to assist you across all real estate,
-                  building supplies, transport, and trade divisions.
-                </p>
-              </div>
-
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: "1.25rem",
-                }}
-              >
-                {/* Office Address */}
-                <div className="contact-info-card">
-                  <div className="contact-icon-bubble">
-                    <MapPin size={22} />
-                  </div>
-                  <div>
-                    <h4 className="contact-info-title">
-                      Corporate Headquarters
-                    </h4>
-                    <p style={{ color: "#475569", fontSize: "0.9rem" }}>
-                      {COMPANY_INFO.contact.address}
-                    </p>
-                  </div>
+          <div className="grid-asymmetric">
+            {/* Left: Contact Info (Structural List) */}
+            <div style={{ paddingRight: '2rem' }}>
+              <span className="orange-slash">/</span>
+              <span className="text-label">Direct Lines</span>
+              <h2 className="text-heading-lg" style={{ marginTop: '1.5rem', marginBottom: '3rem' }}>
+                Operational<br/>Headquarters.
+              </h2>
+              
+              <div className="editorial-list">
+                <div className="editorial-list-item" style={{ gridTemplateColumns: '1fr' }}>
+                  <h4 className="text-label" style={{ color: 'var(--orange)' }}>Address</h4>
+                  <p className="text-body-lg" style={{ color: 'var(--navy)', fontWeight: '600' }}>
+                    {COMPANY_INFO.contact.address}
+                  </p>
+                </div>
+                
+                <div className="editorial-list-item" style={{ gridTemplateColumns: '1fr' }}>
+                  <h4 className="text-label" style={{ color: 'var(--orange)' }}>Phone & WhatsApp</h4>
+                  <p className="text-body-lg" style={{ color: 'var(--navy)', fontWeight: '600' }}>
+                    {COMPANY_INFO.contact.phone1}
+                  </p>
                 </div>
 
-                {/* Phone Numbers */}
-                <div className="contact-info-card">
-                  <div className="contact-icon-bubble">
-                    <Phone size={22} />
-                  </div>
-                  <div>
-                    <h4 className="contact-info-title">Phone Lines</h4>
-                    <div
-                      style={{
-                        display: "flex",
-                        flexDirection: "column",
-                        gap: "0.2rem",
-                        fontSize: "0.9rem",
-                      }}
-                    >
-                      <a
-                        href={`tel:${COMPANY_INFO.contact.phone1.replace(/\s+/g, "")}`}
-                        style={{ color: "var(--navy)", fontWeight: "600" }}
-                      >
-                        {COMPANY_INFO.contact.phone1}
-                      </a>
-                    </div>
-                  </div>
+                <div className="editorial-list-item" style={{ gridTemplateColumns: '1fr' }}>
+                  <h4 className="text-label" style={{ color: 'var(--orange)' }}>Email</h4>
+                  <p className="text-body-lg" style={{ color: 'var(--navy)', fontWeight: '600' }}>
+                    {COMPANY_INFO.contact.email}
+                  </p>
                 </div>
 
-                {/* WhatsApp */}
-                <div className="contact-info-card">
-                  <div className="contact-icon-bubble orange-bg">
-                    <MessageSquare size={22} />
-                  </div>
-                  <div>
-                    <h4 className="contact-info-title">
-                      WhatsApp Instant Chat
-                    </h4>
-                    <a
-                      href={`https://wa.me/${COMPANY_INFO.contact.whatsapp}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      style={{
-                        color: "var(--orange)",
-                        fontWeight: "700",
-                        fontSize: "0.9rem",
-                        display: "inline-flex",
-                        alignItems: "center",
-                        gap: "0.3rem",
-                      }}
-                    >
-                      Chat on WhatsApp Directly
-                      <ArrowUpRight size={15} />
-                    </a>
-                  </div>
-                </div>
-
-                {/* Email Addresses */}
-                <div className="contact-info-card">
-                  <div className="contact-icon-bubble">
-                    <Mail size={22} />
-                  </div>
-                  <div>
-                    <h4 className="contact-info-title">Email Inquiries</h4>
-                    <div
-                      style={{
-                        display: "flex",
-                        flexDirection: "column",
-                        gap: "0.2rem",
-                        fontSize: "0.9rem",
-                      }}
-                    >
-                      <a
-                        href={`mailto:${COMPANY_INFO.contact.email}`}
-                        style={{ color: "var(--navy)", fontWeight: "600" }}
-                      >
-                        {COMPANY_INFO.contact.email}
-                      </a>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Operating Hours */}
-                <div className="contact-info-card">
-                  <div className="contact-icon-bubble">
-                    <Clock size={22} />
-                  </div>
-                  <div>
-                    <h4 className="contact-info-title">Business Hours</h4>
-                    <p style={{ color: "#475569", fontSize: "0.88rem" }}>
-                      {COMPANY_INFO.contact.hours}
-                    </p>
-                  </div>
+                <div className="editorial-list-item" style={{ gridTemplateColumns: '1fr' }}>
+                  <h4 className="text-label" style={{ color: 'var(--orange)' }}>Operating Hours</h4>
+                  <p className="text-body-sm" style={{ color: 'var(--navy)' }}>
+                    Monday - Friday: 8:00 AM - 5:00 PM<br/>
+                    Saturday: 9:00 AM - 1:00 PM
+                  </p>
                 </div>
               </div>
             </div>
 
-            {/* Interactive Form */}
-            <div>
-              <div className="form-card">
-                <span className="section-eyebrow">Send A Message</span>
-                <h3
-                  style={{
-                    fontSize: "1.75rem",
-                    fontWeight: "700",
-                    color: "var(--navy)",
-                    marginBottom: "1.5rem",
-                  }}
-                >
-                  Inquire With Our Corporate Team
-                </h3>
+            {/* Right: Brutalist Form */}
+            <div style={{ backgroundColor: 'var(--light-bg)', padding: '4rem', border: '1px solid var(--border-color)' }}>
+              <h3 className="text-heading-md" style={{ marginBottom: '2.5rem' }}>
+                Submit an Inquiry
+              </h3>
+              
+              <form onSubmit={(e) => e.preventDefault()} style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem' }}>
+                  <div>
+                    <label className="text-label" style={{ display: 'block', marginBottom: '0.75rem' }}>First Name</label>
+                    <input type="text" className="contact-form-input" placeholder="John" required />
+                  </div>
+                  <div>
+                    <label className="text-label" style={{ display: 'block', marginBottom: '0.75rem' }}>Last Name</label>
+                    <input type="text" className="contact-form-input" placeholder="Doe" required />
+                  </div>
+                </div>
 
-                {submitted ? (
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    style={{
-                      backgroundColor: "var(--white)",
-                      padding: "2.5rem",
-                      borderRadius: "1.25rem",
-                      textAlign: "center",
-                      border: "1px solid #A7F3D0",
-                    }}
-                  >
-                    <div
-                      style={{
-                        width: "4rem",
-                        height: "4rem",
-                        borderRadius: "50%",
-                        backgroundColor: "#D1FAE5",
-                        color: "#059669",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        margin: "0 auto 1rem",
-                      }}
-                    >
-                      <CheckCircle2 size={36} />
-                    </div>
-                    <h4
-                      style={{
-                        fontSize: "1.5rem",
-                        fontWeight: "700",
-                        color: "var(--navy)",
-                        marginBottom: "0.5rem",
-                      }}
-                    >
-                      Message Received!
-                    </h4>
-                    <p
-                      style={{
-                        color: "var(--muted-text)",
-                        fontSize: "0.95rem",
-                        marginBottom: "1.5rem",
-                      }}
-                    >
-                      Thank you for contacting Bongbine Ltd. A representative
-                      will review your inquiry and respond shortly.
-                    </p>
-                    <button
-                      onClick={() => setSubmitted(false)}
-                      className="btn-primary"
-                    >
-                      Send Another Message
-                    </button>
-                  </motion.div>
-                ) : (
-                  <form onSubmit={handleSubmit}>
-                    <div
-                      style={{
-                        display: "grid",
-                        gridTemplateColumns:
-                          "repeat(auto-fit, minmax(200px, 1fr))",
-                        gap: "1.25rem",
-                      }}
-                    >
-                      <div className="form-group">
-                        <label className="form-label">Full Name *</label>
-                        <input
-                          type="text"
-                          required
-                          value={formData.name}
-                          onChange={(e) =>
-                            setFormData({ ...formData, name: e.target.value })
-                          }
-                          placeholder="e.g. Jean Paul"
-                          className="form-input"
-                        />
-                      </div>
+                <div>
+                  <label className="text-label" style={{ display: 'block', marginBottom: '0.75rem' }}>Email Address</label>
+                  <input type="email" className="contact-form-input" placeholder="john@company.com" required />
+                </div>
 
-                      <div className="form-group">
-                        <label className="form-label">Email Address *</label>
-                        <input
-                          type="email"
-                          required
-                          value={formData.email}
-                          onChange={(e) =>
-                            setFormData({ ...formData, email: e.target.value })
-                          }
-                          placeholder="e.g. jean@example.com"
-                          className="form-input"
-                        />
-                      </div>
-                    </div>
+                <div>
+                  <label className="text-label" style={{ display: 'block', marginBottom: '0.75rem' }}>Division of Interest</label>
+                  <select className="contact-form-input" required>
+                    <option value="">Select a division...</option>
+                    <option value="real-estate">Real Estate</option>
+                    <option value="construction">Construction</option>
+                    <option value="materials">Building Materials</option>
+                    <option value="logistics">Transport & Logistics</option>
+                    <option value="trade">Import & Export</option>
+                    <option value="other">General Inquiry</option>
+                  </select>
+                </div>
 
-                    <div
-                      style={{
-                        display: "grid",
-                        gridTemplateColumns:
-                          "repeat(auto-fit, minmax(200px, 1fr))",
-                        gap: "1.25rem",
-                      }}
-                    >
-                      <div className="form-group">
-                        <label className="form-label">Phone Number</label>
-                        <input
-                          type="tel"
-                          value={formData.phone}
-                          onChange={(e) =>
-                            setFormData({ ...formData, phone: e.target.value })
-                          }
-                          placeholder="+237..."
-                          className="form-input"
-                        />
-                      </div>
+                <div>
+                  <label className="text-label" style={{ display: 'block', marginBottom: '0.75rem' }}>Message</label>
+                  <textarea className="contact-form-input" rows="5" placeholder="How can we help you?" required></textarea>
+                </div>
 
-                      <div className="form-group">
-                        <label className="form-label">
-                          Division of Interest
-                        </label>
-                        <select
-                          value={formData.subject}
-                          onChange={(e) =>
-                            setFormData({
-                              ...formData,
-                              subject: e.target.value,
-                            })
-                          }
-                          className="form-select"
-                        >
-                          <option value="Real Estate">Real Estate</option>
-                          <option value="Construction">Construction</option>
-                          <option value="Building Materials">
-                            Building Materials
-                          </option>
-                          <option value="Transport & Logistics">
-                            Transport & Logistics
-                          </option>
-                          <option value="Import & Export">
-                            Import & Export
-                          </option>
-                          <option value="General Partnership">
-                            General Partnership
-                          </option>
-                        </select>
-                      </div>
-                    </div>
-
-                    <div className="form-group">
-                      <label className="form-label">Message *</label>
-                      <textarea
-                        required
-                        rows={5}
-                        value={formData.message}
-                        onChange={(e) =>
-                          setFormData({ ...formData, message: e.target.value })
-                        }
-                        placeholder="How can Bongbine Ltd assist you?"
-                        className="form-textarea"
-                      />
-                    </div>
-
-                    <button
-                      type="submit"
-                      className="btn-primary"
-                      style={{ width: "100%", marginTop: "0.5rem" }}
-                    >
-                      Send Message
-                      <Send size={18} />
-                    </button>
-                  </form>
-                )}
-              </div>
+                <button type="submit" className="btn-primary" style={{ alignSelf: 'flex-start', marginTop: '1rem', borderRadius: '0', padding: '1.25rem 3rem' }}>
+                  Send Message
+                </button>
+              </form>
             </div>
           </div>
         </div>
