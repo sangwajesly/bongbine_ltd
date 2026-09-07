@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const PageHero = ({ title, subtitle, bgImage, badge = "Bongbine Ltd" }) => {
-  const defaultBg = "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920&q=80";
+  const defaultBg = "/images/pexels-addibeka-14660578.jpg";
 
   return (
     <div style={{ backgroundColor: 'var(--white)', borderBottom: '1px solid var(--border-color)', paddingTop: '74px' }}>

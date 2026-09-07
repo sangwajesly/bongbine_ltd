@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PageHero from '../components/PageHero';
 import { BUSINESS_DIVISIONS } from '../data/companyData';
+import { RevealText, RevealImage, RevealLine } from '../components/EditorialReveal';
 
 const Services = () => {
   return (
@@ -10,7 +11,7 @@ const Services = () => {
         title="Our Services"
         subtitle="Comprehensive infrastructure, supply chain, real estate, and global trade capabilities built on dependable execution."
         badge="Bongbine Ltd"
-        bgImage="https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?auto=format&fit=crop&w=1920&q=80"
+        bgImage="/images/pexels-skylight-views-2151863365-36347347.jpg"
       />
 
       {/* Navigation Sticky Bar */}
@@ -51,42 +52,50 @@ const Services = () => {
             >
               {/* Sticky Left Column */}
               <div style={{ position: 'sticky', top: '160px', alignSelf: 'start' }}>
-                <div style={{ fontSize: '1.5rem', fontFamily: 'var(--font-heading)', fontWeight: '800', color: 'var(--orange)', marginBottom: '1rem' }}>
-                  0{idx + 1}.
-                </div>
-                <h2 className="text-heading-md" style={{ marginBottom: '1rem' }}>
-                  {division.title}
-                </h2>
-                <Link to="/contact" className="text-label" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', textDecoration: 'underline', textUnderlineOffset: '4px' }}>
-                  Engage Division
-                </Link>
+                <RevealText>
+                  <div style={{ fontSize: '1.5rem', fontFamily: 'var(--font-heading)', fontWeight: '800', color: 'var(--orange)', marginBottom: '1rem' }}>
+                    0{idx + 1}.
+                  </div>
+                  <h2 className="text-heading-md" style={{ marginBottom: '1rem' }}>
+                    {division.title}
+                  </h2>
+                  <Link to="/contact" className="text-label" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', textDecoration: 'underline', textUnderlineOffset: '4px' }}>
+                    Engage Division
+                  </Link>
+                </RevealText>
               </div>
 
               {/* Scrolling Right Column */}
               <div>
-                <img
-                  src={division.image}
-                  alt={division.title}
-                  style={{ width: '100%', height: '400px', objectFit: 'cover', marginBottom: '3rem' }}
-                />
+                <RevealImage>
+                  <img
+                    src={division.image}
+                    alt={division.title}
+                    style={{ width: '100%', height: '400px', objectFit: 'cover', marginBottom: '3rem' }}
+                  />
+                </RevealImage>
                 
-                <p className="text-body-lg" style={{ color: 'var(--navy)', fontWeight: '600', marginBottom: '2rem' }}>
-                  {division.fullDescription}
-                </p>
+                <RevealText delay={0.1}>
+                  <p className="text-body-lg" style={{ color: 'var(--navy)', fontWeight: '600', marginBottom: '2rem' }}>
+                    {division.fullDescription}
+                  </p>
+                </RevealText>
 
-                <div className="structural-line" style={{ margin: '2.5rem 0' }} />
+                <RevealLine delay={0.2} className="structural-line" style={{ margin: '2.5rem 0' }} />
 
-                <h4 className="text-label" style={{ color: 'var(--orange)', marginBottom: '1.5rem' }}>
-                  Key Capabilities
-                </h4>
-                <ul style={{ listStyle: 'none', display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem' }}>
-                  {division.capabilities.map((cap) => (
-                    <li key={cap} className="text-body-sm" style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
-                      <span style={{ color: 'var(--orange)', fontWeight: '800', marginTop: '-2px' }}>/</span>
-                      <span>{cap}</span>
-                    </li>
-                  ))}
-                </ul>
+                <RevealText delay={0.3}>
+                  <h4 className="text-label" style={{ color: 'var(--orange)', marginBottom: '1.5rem' }}>
+                    Key Capabilities
+                  </h4>
+                  <ul style={{ listStyle: 'none', display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem' }}>
+                    {division.capabilities.map((cap) => (
+                      <li key={cap} className="text-body-sm" style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
+                        <span style={{ color: 'var(--orange)', fontWeight: '800', marginTop: '-2px' }}>/</span>
+                        <span>{cap}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </RevealText>
               </div>
             </div>
           ))}
@@ -96,19 +105,21 @@ const Services = () => {
       {/* Bottom CTA */}
       <section className="py-loose" style={{ backgroundColor: 'var(--navy)', textAlign: 'center', color: 'var(--white)' }}>
         <div className="container" style={{ maxWidth: '800px' }}>
-          <span className="orange-slash">/</span>
-          <span className="text-label" style={{ color: 'var(--white)', opacity: 0.8 }}>
-            Integrated Approach
-          </span>
-          <h2 className="text-heading-lg" style={{ color: 'var(--white)', marginTop: '2rem', marginBottom: '2rem' }}>
-            Need a Customized Enterprise Solution?
-          </h2>
-          <p className="text-body-lg" style={{ marginBottom: '3rem', marginX: 'auto', color: 'rgba(255,255,255,0.8)' }}>
-            Bongbine combines real estate, supply logistics, building materials, and trade services under one unified point of contact.
-          </p>
-          <Link to="/contact" className="btn-primary" style={{ backgroundColor: 'var(--white)', color: 'var(--navy)', borderColor: 'var(--white)', borderRadius: '0' }}>
-            Request Consultation
-          </Link>
+          <RevealText>
+            <span className="orange-slash">/</span>
+            <span className="text-label" style={{ color: 'var(--white)', opacity: 0.8 }}>
+              Integrated Approach
+            </span>
+            <h2 className="text-heading-lg" style={{ color: 'var(--white)', marginTop: '2rem', marginBottom: '2rem' }}>
+              Need a Customized Enterprise Solution?
+            </h2>
+            <p className="text-body-lg" style={{ marginBottom: '3rem', marginX: 'auto', color: 'rgba(255,255,255,0.8)' }}>
+              Bongbine combines real estate, supply logistics, building materials, and trade services under one unified point of contact.
+            </p>
+            <Link to="/contact" className="btn-primary" style={{ backgroundColor: 'var(--white)', color: 'var(--navy)', borderColor: 'var(--white)', borderRadius: '0' }}>
+              Request Consultation
+            </Link>
+          </RevealText>
         </div>
       </section>
 
