@@ -51,7 +51,7 @@ const Home = () => {
             style={{ position: 'absolute', inset: 0 }}
           >
             <img 
-              src="https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?auto=format&fit=crop&crop=edges&w=1200&h=1600&q=80" 
+              src="https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?auto=format&fit=crop&w=1200&h=1600&q=80" 
               alt="Bongbine Infrastructure" 
               style={{ width: '100%', height: '100%', objectFit: 'cover' }}
             />
@@ -65,7 +65,7 @@ const Home = () => {
           <div className="grid-asymmetric-rev">
             <div style={{ position: 'relative' }}>
               <img 
-                src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&crop=edges&w=1000&h=1200&q=80" 
+                src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1000&h=1200&q=80" 
                 alt="Corporate Building" 
                 style={{ width: '100%', height: '600px', objectFit: 'cover' }}
               />

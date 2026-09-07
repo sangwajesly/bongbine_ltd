@@ -10,7 +10,7 @@ const Services = () => {
         title="Our Services"
         subtitle="Comprehensive infrastructure, supply chain, real estate, and global trade capabilities built on dependable execution."
         badge="Bongbine Ltd"
-        bgImage="https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?auto=format&fit=crop&crop=edges&w=1920&q=80"
+        bgImage="https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?auto=format&fit=crop&w=1920&q=80"
       />
 
       {/* Navigation Sticky Bar */}

@@ -138,7 +138,7 @@ export const BUSINESS_DIVISIONS = [
       "Tenant & Estate Relations Management",
     ],
     image:
-      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&crop=edges&w=1000&h=1200&q=80",
+      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1000&h=1200&q=80",
     iconName: "Building2",
   },
   {
@@ -155,7 +155,7 @@ export const BUSINESS_DIVISIONS = [
       "Site Preparation & Structural Frameworks",
     ],
     image:
-      "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&crop=edges&w=1000&h=1200&q=80",
+      "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1000&h=1200&q=80",
     iconName: "HardHat",
   },
   {
@@ -172,7 +172,7 @@ export const BUSINESS_DIVISIONS = [
       "Quality Certification & Bulk Supply Logistics",
     ],
     image:
-      "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&crop=edges&w=1000&h=1200&q=80",
+      "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1000&h=1200&q=80",
     iconName: "Boxes",
   },
   {
@@ -189,7 +189,7 @@ export const BUSINESS_DIVISIONS = [
       "Warehousing & Inventory Transfer",
     ],
     image:
-      "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&crop=edges&w=1000&h=1200&q=80",
+      "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1000&h=1200&q=80",
     iconName: "Truck",
   },
   {
@@ -206,7 +206,7 @@ export const BUSINESS_DIVISIONS = [
       "International Trade Contracting",
     ],
     image:
-      "https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&crop=edges&w=1000&h=1200&q=80",
+      "https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=1000&h=1200&q=80",
     iconName: "Globe",
   },
 ];

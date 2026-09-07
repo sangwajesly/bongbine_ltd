@@ -119,10 +119,23 @@ const Footer = () => {
         {/* Bottom copyright */}
         <div className="footer-bottom">
           <p>© {new Date().getFullYear()} Bongbine Ltd. All rights reserved.</p>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-            <span>Bongbine Ltd</span>
-            <span>•</span>
-            <span style={{ color: 'var(--orange)' }}>Where Business Meets Family</span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', flexWrap: 'wrap' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+              <span>Bongbine Ltd</span>
+              <span>•</span>
+              <span style={{ color: 'var(--orange)' }}>Where Business Meets Family</span>
+            </div>
+            <span style={{ color: '#334155' }}>|</span>
+            <a 
+              href="https://wa.me/237682833601?text=Hello%20Sangwa%2C%20I%20saw%20your%20work%20on%20the%20Bongbine%20Ltd%20website%20and%20would%20like%20to%20connect." 
+              target="_blank" 
+              rel="noopener noreferrer"
+              style={{ color: '#94A3B8', textDecoration: 'none', transition: 'color 0.2s ease', fontSize: '0.85rem' }}
+              onMouseEnter={(e) => e.target.style.color = 'var(--white)'}
+              onMouseLeave={(e) => e.target.style.color = '#94A3B8'}
+            >
+              Built by <span style={{ color: 'var(--white)', fontWeight: '600' }}>Sangwa Jesly</span>
+            </a>
           </div>
         </div>
       </div>
