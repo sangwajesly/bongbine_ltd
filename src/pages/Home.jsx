@@ -35,8 +35,8 @@ const Home = () => {
             className="text-display"
             style={{ marginBottom: '2.5rem' }}
           >
-            Building Growth.<br/>
-            <span style={{ color: 'var(--orange)' }}>Creating Value.</span>
+            Building Cameroon's<br/>
+            <span style={{ color: 'var(--orange)' }}>Future Together.</span>
           </motion.h1>
 
           <motion.p 
@@ -73,7 +73,7 @@ const Home = () => {
             style={{ position: 'absolute', inset: 0 }}
           >
             <img 
-              src="/images/pexels-skylight-views-2151863365-36347347.jpg"
+              src="/images/small-business-owner-analyzing-architectural-sketches-planning-office-spaces.jpg"
               alt="Bongbine Infrastructure" 
               style={{ width: '100%', height: '100%', objectFit: 'cover' }}
             />
@@ -88,7 +88,7 @@ const Home = () => {
             <div style={{ position: 'relative' }}>
               <RevealImage>
                 <img 
-                  src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1000&h=1200&q=80" 
+                  src="/images/set-designer-work-indoors.jpg" 
                   alt="Corporate Building" 
                   style={{ width: '100%', height: '600px', objectFit: 'cover' }}
                 />

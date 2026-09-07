@@ -30,7 +30,7 @@ const OurBusiness = () => {
         title="Our Operations & Structure"
         subtitle="Exploring the operational structure, multi-sector capabilities, and commercial strength of Bongbine Ltd."
         badge="Bongbine Ltd"
-        bgImage="/images/pexels-the-artboard-131151099-18346466.jpg"
+        bgImage="/images/aerial-view-construction-site-with-excavator-trucks-near-waterfront-homes.jpg"
       />
 
       {/* 1. OVERVIEW & CAPABILITY FRAMEWORK */}

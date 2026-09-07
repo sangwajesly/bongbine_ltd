@@ -1,9 +1,9 @@
 export const COMPANY_INFO = {
   name: "Bongbine Ltd",
   tagline: "Where Business Meets Family",
-  heroHeadline: "Building Growth. Creating Value.",
+  heroHeadline: "Building Cameroon's Future Together.",
   heroSubtext:
-    "A diversified infrastructure and commerce group delivering dependable solutions across Real Estate, Construction, Building Materials, Logistics, and Global Trade.",
+    "From supplying quality building materials to managing major construction and transporting goods, Bongbine Ltd is your trusted local partner for getting the job done right.",
 
   aboutParagraph1:
     "Bongbine is a diversified business operating across real estate, building materials, transportation, and international trade. The company is committed to delivering dependable solutions that support infrastructure development, commerce, and long-term growth.",
@@ -172,7 +172,7 @@ export const BUSINESS_DIVISIONS = [
       "Quality Certification & Bulk Supply Logistics",
     ],
     image:
-      "/images/pexels-milo-textures-1387944-2850515.jpg",
+      "/images/entrepreneur-drafting-architectural-blueprints-planning-office-relocation.jpg",
     iconName: "Boxes",
   },
   {
@@ -189,7 +189,7 @@ export const BUSINESS_DIVISIONS = [
       "Warehousing & Inventory Transfer",
     ],
     image:
-      "/images/pexels-the-artboard-131151099-18346466.jpg",
+      "/images/small-business-owner-analyzing-architectural-sketches-planning-office-spaces.jpg",
     iconName: "Truck",
   },
   {
@@ -206,7 +206,7 @@ export const BUSINESS_DIVISIONS = [
       "International Trade Contracting",
     ],
     image:
-      "/images/pexels-praisetoby-praise-1226513-31533077.jpg",
+      "/images/set-designer-work-indoors.jpg",
     iconName: "Globe",
   },
 ];
