@@ -15,7 +15,7 @@ const Services = () => {
       />
 
       {/* Navigation Sticky Bar */}
-      <section style={{ backgroundColor: 'var(--navy)', borderTop: '1px solid rgba(255,255,255,0.1)', padding: '1.25rem 0', position: 'sticky', top: '52px', zIndex: 30 }}>
+      <section style={{ backgroundColor: 'var(--navy)', borderTop: '1px solid rgba(255,255,255,0.1)', padding: '1.25rem 0', position: 'sticky', top: '40px', zIndex: 30 }}>
         <div className="container">
           <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', overflowX: 'auto', paddingBottom: '0.5rem' }} className="hide-scrollbar">
             {BUSINESS_DIVISIONS.map((div) => (

@@ -45,7 +45,7 @@ const Properties = () => {
         bgImage={false}
       />
 
-      <section className="py-standard" style={{ backgroundColor: 'var(--light-bg)' }}>
+      <section style={{ backgroundColor: 'var(--light-bg)', padding: '2rem 0 6rem 0' }}>
         <div className="container">
           
           {/* Filters */}

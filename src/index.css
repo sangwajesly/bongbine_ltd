@@ -1114,12 +1114,12 @@ button {
   align-items: stretch;
   background-color: var(--white);
   border-bottom: 1px solid var(--border-color);
-  padding-top: 52px;
+  padding-top: 40px;
 }
 
 .home-hero-content {
   flex: 1.2;
-  padding: 3rem 4rem;
+  padding: 1.5rem 4rem;
   display: flex;
   flex-direction: column;
   justify-content: center;

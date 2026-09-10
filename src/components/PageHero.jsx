@@ -5,21 +5,21 @@ const PageHero = ({ title, subtitle, bgImage, badge = "Bongbine Ltd" }) => {
   const defaultBg = "/images/construction.jpg";
 
   return (
-    <div style={{ backgroundColor: 'var(--white)', borderBottom: '1px solid var(--border-color)', paddingTop: '52px' }}>
+    <div style={{ backgroundColor: 'var(--white)', borderBottom: '1px solid var(--border-color)', paddingTop: '40px' }}>
       <div className="container">
-        <div style={{ padding: '3rem 0', maxWidth: '900px' }}>
+        <div style={{ padding: '1.5rem 0 1rem 0', maxWidth: '900px' }}>
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '2rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
               <span className="orange-slash">/</span>
               <span style={{ fontFamily: 'var(--font-heading)', fontWeight: '800', fontSize: '0.85rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--navy)' }}>
                 {badge}
               </span>
             </div>
-            <h1 className="text-display" style={{ marginBottom: '1.5rem', fontSize: 'clamp(3rem, 5vw, 5rem)' }}>
+            <h1 className="text-display" style={{ marginBottom: '1rem', fontSize: 'clamp(3rem, 5vw, 5rem)' }}>
               {title}
             </h1>
             {subtitle && (
