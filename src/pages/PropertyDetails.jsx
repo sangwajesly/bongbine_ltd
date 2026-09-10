@@ -31,6 +31,8 @@ const PropertyDetails = () => {
     fetchProperty();
   }, [id]);
 
+  const [selectedImage, setSelectedImage] = useState(null);
+
   if (loading) {
     return <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', paddingTop: '80px' }}>Loading...</div>;
   }
@@ -46,6 +48,17 @@ const PropertyDetails = () => {
 
   return (
     <div style={{ paddingTop: '52px' }}>
+      {/* Lightbox Modal */}
+      {selectedImage && (
+        <div 
+          onClick={() => setSelectedImage(null)}
+          style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, backgroundColor: 'rgba(0,0,0,0.9)', zIndex: 99999, display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'zoom-out' }}
+        >
+          <img src={selectedImage} style={{ maxHeight: '90vh', maxWidth: '90vw', objectFit: 'contain' }} alt="Enlarged view" />
+          <button style={{ position: 'absolute', top: '20px', right: '30px', background: 'none', border: 'none', color: 'white', fontSize: '2rem', cursor: 'pointer' }}>&times;</button>
+        </div>
+      )}
+
       {/* HEADER SECTION */}
       <section className="py-standard" style={{ backgroundColor: 'var(--white)', borderBottom: '1px solid var(--border-color)' }}>
         <div className="container">
@@ -59,24 +72,15 @@ const PropertyDetails = () => {
               <h1 className="text-display" style={{ fontSize: 'clamp(2.5rem, 4vw, 3.5rem)', color: 'var(--navy)', marginTop: '0.5rem', marginBottom: '1rem' }}>
                 {property.title}
               </h1>
-              <p className="text-body-lg" style={{ color: 'var(--muted-text)' }}>{property.location}</p>
+              <p style={{ fontSize: '1.2rem', color: 'var(--muted-text)', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <span style={{ color: 'var(--orange)' }}>📍</span> {property.location}
+              </p>
             </RevealText>
           </div>
         </div>
       </section>
 
-      {/* HERO IMAGE */}
-      <section>
-        <RevealImage>
-          <img 
-            src={property.images[0]} 
-            alt={property.title} 
-            style={{ width: '100%', height: '70vh', objectFit: 'cover' }} 
-          />
-        </RevealImage>
-      </section>
-
-      {/* DETAILS SECTION */}
+      {/* MAIN CONTENT SECTION */}
       <section className="py-standard" style={{ backgroundColor: 'var(--light-bg)' }}>
         <div className="container">
           <div className="grid-asymmetric">
@@ -98,15 +102,22 @@ const PropertyDetails = () => {
               </RevealText>
             </div>
             
-            <div style={{ paddingLeft: '2rem' }}>
-              <RevealText delay={0.1}>
-                <h3 className="text-heading" style={{ marginBottom: '1.5rem' }}>Property Overview</h3>
-                <p className="text-body" style={{ whiteSpace: 'pre-line', marginBottom: '3rem' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '3rem' }}>
+              <RevealImage>
+                <div style={{ position: 'relative', height: '500px', width: '100%', borderRadius: '8px', overflow: 'hidden' }}>
+                  <img src={property.images[0]} alt={property.title} onClick={() => setSelectedImage(property.images[0])} style={{ width: '100%', height: '100%', objectFit: 'cover', cursor: 'zoom-in' }} />
+                </div>
+              </RevealImage>
+              
+              <RevealText>
+                <h3 className="text-heading" style={{ marginBottom: '1.5rem' }}>Description</h3>
+                <div style={{ lineHeight: 1.8, color: 'var(--muted-text)', whiteSpace: 'pre-line' }}>
                   {property.description}
-                </p>
+                </div>
                 
                 {property.features && property.features.length > 0 && (
                   <>
+                    <hr style={{ margin: '3rem 0', borderColor: 'var(--border-color)', opacity: 0.5 }} />
                     <h3 className="text-heading" style={{ marginBottom: '1.5rem' }}>Key Features</h3>
                     <ul style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', listStyle: 'none', padding: 0 }}>
                       {property.features.map((feature, idx) => (
@@ -126,7 +137,7 @@ const PropertyDetails = () => {
                   <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
                     {property.images.slice(1).map((img, idx) => (
                       <RevealImage key={idx} delay={idx * 0.1}>
-                        <img src={img} alt={`${property.title} - view ${idx + 2}`} style={{ width: '100%', height: '300px', objectFit: 'cover', borderRadius: '4px' }} />
+                        <img src={img} alt={`${property.title} - view ${idx + 2}`} onClick={() => setSelectedImage(img)} style={{ width: '100%', height: '300px', objectFit: 'cover', borderRadius: '4px', cursor: 'zoom-in' }} />
                       </RevealImage>
                     ))}
                   </div>

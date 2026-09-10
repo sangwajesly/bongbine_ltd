@@ -57,7 +57,18 @@ const Properties = () => {
           </div>
 
           {loading ? (
-            <div style={{ padding: '4rem', textAlign: 'center', color: 'var(--muted-text)' }}>Loading exclusive listings...</div>
+            <div className="grid-asymmetric">
+              {[1, 2, 3, 4, 5, 6].map((i) => (
+                <div key={i} style={{ backgroundColor: 'var(--white)', borderRadius: '8px', overflow: 'hidden', border: '1px solid var(--border-color)', height: '400px' }}>
+                  <div style={{ backgroundColor: '#e2e8f0', width: '100%', height: '250px', animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite' }}></div>
+                  <div style={{ padding: '1.5rem' }}>
+                    <div style={{ backgroundColor: '#e2e8f0', width: '30%', height: '14px', borderRadius: '4px', marginBottom: '1rem', animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite' }}></div>
+                    <div style={{ backgroundColor: '#e2e8f0', width: '80%', height: '24px', borderRadius: '4px', marginBottom: '0.5rem', animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite' }}></div>
+                    <div style={{ backgroundColor: '#e2e8f0', width: '50%', height: '16px', borderRadius: '4px', animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite' }}></div>
+                  </div>
+                </div>
+              ))}
+            </div>
           ) : filteredProps.length === 0 ? (
             <div style={{ padding: '4rem', textAlign: 'center', color: 'var(--muted-text)' }}>No properties currently available in this category.</div>
           ) : (

@@ -15,8 +15,8 @@ import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import Properties from "./pages/Properties";
 import PropertyDetails from "./pages/PropertyDetails";
-
 import EditListing from "./pages/admin/EditListing";
+import WhatsAppButton from "./components/WhatsAppButton";
 
 // Admin Pages
 import Login from "./pages/Login";
@@ -32,6 +32,7 @@ function App() {
         <ScrollToTop />
         <div className="min-h-screen flex flex-col bg-[#FEFEFE] text-[#222222]">
           <Navbar />
+          <WhatsAppButton />
           <main className="flex-grow">
             <Routes>
               {/* Public Routes */}
