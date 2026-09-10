@@ -82,16 +82,16 @@ const PropertyDetails = () => {
           <div className="grid-asymmetric">
             <div>
               <RevealText>
-                <div style={{ backgroundColor: 'var(--navy)', color: 'var(--white)', padding: '2.5rem', borderRadius: '8px', position: 'sticky', top: '100px' }}>
-                  <h3 style={{ fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '2px', opacity: 0.7, marginBottom: '0.5rem' }}>Listing Price</h3>
+                <div style={{ backgroundColor: 'var(--white)', color: 'var(--navy)', padding: '2.5rem', borderRadius: '8px', border: '1px solid var(--border-color)', position: 'sticky', top: '100px', boxShadow: '0 10px 30px rgba(0,0,0,0.05)' }}>
+                  <h3 style={{ fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '2px', color: 'var(--muted-text)', marginBottom: '0.5rem', fontWeight: 'bold' }}>Listing Price</h3>
                   <div style={{ fontSize: '2.5rem', fontFamily: 'var(--font-heading)', marginBottom: '2rem', color: 'var(--orange)' }}>
                     {property.price}
                   </div>
                   
-                  <h4 style={{ fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '1px', opacity: 0.7, marginBottom: '1rem' }}>Contact Us</h4>
-                  <p style={{ marginBottom: '1.5rem', lineHeight: 1.5 }}>Interested in this property? Contact our real estate division today.</p>
+                  <h4 style={{ fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '1px', color: 'var(--muted-text)', marginBottom: '1rem', fontWeight: 'bold' }}>Contact Us</h4>
+                  <p style={{ marginBottom: '1.5rem', lineHeight: 1.5, color: 'var(--navy)' }}>Interested in this property? Contact our real estate division today.</p>
                   
-                  <a href="https://wa.me/237682833601" target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ display: 'block', textAlign: 'center', backgroundColor: 'var(--orange)', color: 'var(--white)', border: 'none' }}>
+                  <a href="https://wa.me/237676299358" target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ display: 'block', textAlign: 'center', width: '100%' }}>
                     Inquire via WhatsApp
                   </a>
                 </div>

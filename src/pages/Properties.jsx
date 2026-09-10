@@ -30,9 +30,11 @@ const Properties = () => {
     fetchProperties();
   }, []);
 
+  const activeProps = properties.filter(p => p.status !== 'paused');
+
   const filteredProps = filter === 'all' 
-    ? properties 
-    : properties.filter(p => p.type === filter);
+    ? activeProps 
+    : activeProps.filter(p => p.type === filter);
 
   return (
     <div>

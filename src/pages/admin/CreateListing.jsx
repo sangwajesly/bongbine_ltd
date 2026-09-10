@@ -3,6 +3,7 @@ import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import { db } from '../../firebase/config';
 import { useNavigate, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import imageCompression from 'browser-image-compression';
 
 const IMGBB_API_KEY = 'fb4f87cbdcccb259e36e62d200adea30';
 
@@ -34,8 +35,22 @@ const CreateListing = () => {
 
   const uploadImages = async () => {
     const uploadPromises = images.map(async (image) => {
+      // Compress the image before uploading!
+      const options = {
+        maxSizeMB: 0.8,
+        maxWidthOrHeight: 1200,
+        useWebWorker: true
+      };
+      
+      let fileToUpload = image;
+      try {
+        fileToUpload = await imageCompression(image, options);
+      } catch (error) {
+        console.warn("Compression failed, using original", error);
+      }
+
       const data = new FormData();
-      data.append('image', image);
+      data.append('image', fileToUpload);
       
       const res = await fetch(`https://api.imgbb.com/1/upload?key=${IMGBB_API_KEY}`, {
         method: 'POST',
@@ -69,6 +84,7 @@ const CreateListing = () => {
         ...formData,
         features: formData.features.split(',').map(f => f.trim()),
         images: imageUrls,
+        status: 'active',
         createdAt: serverTimestamp()
       };
 

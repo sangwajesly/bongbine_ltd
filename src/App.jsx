@@ -16,6 +16,8 @@ import NotFound from "./pages/NotFound";
 import Properties from "./pages/Properties";
 import PropertyDetails from "./pages/PropertyDetails";
 
+import EditListing from "./pages/admin/EditListing";
+
 // Admin Pages
 import Login from "./pages/Login";
 import AdminDashboard from "./pages/admin/AdminDashboard";
@@ -53,6 +55,11 @@ function App() {
               <Route path="/admin/create" element={
                 <ProtectedRoute>
                   <CreateListing />
+                </ProtectedRoute>
+              } />
+              <Route path="/admin/edit/:id" element={
+                <ProtectedRoute>
+                  <EditListing />
                 </ProtectedRoute>
               } />
 
