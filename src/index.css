@@ -1199,27 +1199,26 @@ button {
     grid-template-columns: 1fr !important;
   }
 }
- 
- / *   C O N T A C T   F O R M   * /  
- . c o n t a c t - f o r m - i n p u t   {  
-     w i d t h :   1 0 0 % ;  
-     p a d d i n g :   1 r e m   1 . 2 5 r e m ;  
-     b o r d e r :   1 p x   s o l i d   v a r ( - - b o r d e r - c o l o r ) ;  
-     b a c k g r o u n d - c o l o r :   v a r ( - - l i g h t - b g ) ;  
-     c o l o r :   v a r ( - - n a v y ) ;  
-     f o n t - f a m i l y :   v a r ( - - f o n t - b o d y ) ;  
-     f o n t - s i z e :   1 r e m ;  
-     t r a n s i t i o n :   a l l   0 . 2 s   e a s e ;  
-     o u t l i n e :   n o n e ;  
- }  
-  
- . c o n t a c t - f o r m - i n p u t : f o c u s   {  
-     b o r d e r - c o l o r :   v a r ( - - o r a n g e ) ;  
-     b a c k g r o u n d - c o l o r :   v a r ( - - w h i t e ) ;  
-     b o x - s h a d o w :   0   0   0   4 p x   r g b a ( 2 3 2 ,   9 3 ,   4 ,   0 . 1 ) ;  
- }  
-  
- . c o n t a c t - f o r m - i n p u t : : p l a c e h o l d e r   {  
-     c o l o r :   # 9 4 a 3 b 8 ;  
- }  
- 
+
+/* CONTACT FORM */
+.contact-form-input {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--border-color);
+  background-color: var(--light-bg);
+  color: var(--navy);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.contact-form-input:focus {
+  border-color: var(--orange);
+  background-color: var(--white);
+  box-shadow: 0 0 0 4px rgba(232, 93, 4, 0.1);
+}
+
+.contact-form-input::placeholder {
+  color: #94a3b8;
+}
