@@ -40,7 +40,7 @@ const Properties = () => {
         title="Real Estate Listings"
         subtitle="Explore our exclusive portfolio of residential, commercial, and land properties available for acquisition."
         badge="Bongbine Real Estate"
-        bgImage="/images/contruction-site.jpg"
+        bgImage={false}
       />
 
       <section className="py-standard" style={{ backgroundColor: 'var(--light-bg)' }}>
