@@ -106,7 +106,7 @@ const About = () => {
           
           <div className="editorial-list">
             {CORE_VALUES.map((val, idx) => (
-              <RevealText key={val.id} delay={idx * 0.1} className="editorial-list-item" style={{ gridTemplateColumns: '100px 300px 1fr', alignItems: 'start' }}>
+              <RevealText key={val.id} delay={idx * 0.1} className="editorial-list-item core-values-list-item">
                 <div className="editorial-number">
                   0{idx + 1}
                 </div>

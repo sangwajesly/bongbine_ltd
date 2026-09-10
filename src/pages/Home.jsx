@@ -8,8 +8,8 @@ const Home = () => {
   return (
     <div>
       {/* 1. ASYMMETRIC HERO SECTION */}
-      <section style={{ minHeight: '100vh', display: 'flex', alignItems: 'stretch', backgroundColor: 'var(--white)', borderBottom: '1px solid var(--border-color)', paddingTop: '74px' }}>
-        <div style={{ flex: '1.2', padding: '6rem 4rem', display: 'flex', flexDirection: 'column', justifyContent: 'center', zIndex: 10 }}>
+      <section className="home-hero-section">
+        <div className="home-hero-content">
           <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '3rem' }}>
             <motion.div 
               initial={{ scaleX: 0, transformOrigin: 'left' }}
@@ -64,7 +64,7 @@ const Home = () => {
           </motion.div>
         </div>
         
-        <div style={{ flex: '1', position: 'relative', overflow: 'hidden', borderLeft: '1px solid var(--border-color)' }}>
+        <div className="home-hero-image">
           {/* Subtle scale out, NO fade */}
           <motion.div
             initial={{ scale: 1.15 }}

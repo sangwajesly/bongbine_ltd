@@ -5,9 +5,9 @@ const PageHero = ({ title, subtitle, bgImage, badge = "Bongbine Ltd" }) => {
   const defaultBg = "/images/construction.jpg";
 
   return (
-    <div style={{ backgroundColor: 'var(--white)', borderBottom: '1px solid var(--border-color)', paddingTop: '74px' }}>
+    <div style={{ backgroundColor: 'var(--white)', borderBottom: '1px solid var(--border-color)', paddingTop: '52px' }}>
       <div className="container">
-        <div style={{ padding: '6rem 0', maxWidth: '900px' }}>
+        <div style={{ padding: '3rem 0', maxWidth: '900px' }}>
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
