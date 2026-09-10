@@ -49,11 +49,11 @@ const Properties = () => {
         <div className="container">
           
           {/* Filters */}
-          <div style={{ display: 'flex', gap: '1rem', marginBottom: '3rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '1.5rem' }}>
-            <button onClick={() => setFilter('all')} className={filter === 'all' ? 'text-label' : 'text-body-sm'} style={{ background: 'none', border: 'none', color: filter === 'all' ? 'var(--orange)' : 'var(--muted-text)', cursor: 'pointer', fontWeight: 'bold' }}>All Properties</button>
-            <button onClick={() => setFilter('house')} className={filter === 'house' ? 'text-label' : 'text-body-sm'} style={{ background: 'none', border: 'none', color: filter === 'house' ? 'var(--orange)' : 'var(--muted-text)', cursor: 'pointer', fontWeight: 'bold' }}>Houses & Buildings</button>
-            <button onClick={() => setFilter('land')} className={filter === 'land' ? 'text-label' : 'text-body-sm'} style={{ background: 'none', border: 'none', color: filter === 'land' ? 'var(--orange)' : 'var(--muted-text)', cursor: 'pointer', fontWeight: 'bold' }}>Lands & Plots</button>
-            <button onClick={() => setFilter('commercial')} className={filter === 'commercial' ? 'text-label' : 'text-body-sm'} style={{ background: 'none', border: 'none', color: filter === 'commercial' ? 'var(--orange)' : 'var(--muted-text)', cursor: 'pointer', fontWeight: 'bold' }}>Commercial</button>
+          <div style={{ display: 'flex', gap: '1rem', marginBottom: '3rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '1.5rem', overflowX: 'auto', whiteSpace: 'nowrap' }} className="hide-scrollbar">
+            <button onClick={() => setFilter('all')} className={filter === 'all' ? 'text-label' : 'text-body-sm'} style={{ background: 'none', border: 'none', color: filter === 'all' ? 'var(--orange)' : 'var(--muted-text)', cursor: 'pointer', fontWeight: 'bold', whiteSpace: 'nowrap' }}>All Properties</button>
+            <button onClick={() => setFilter('house')} className={filter === 'house' ? 'text-label' : 'text-body-sm'} style={{ background: 'none', border: 'none', color: filter === 'house' ? 'var(--orange)' : 'var(--muted-text)', cursor: 'pointer', fontWeight: 'bold', whiteSpace: 'nowrap' }}>Houses & Buildings</button>
+            <button onClick={() => setFilter('land')} className={filter === 'land' ? 'text-label' : 'text-body-sm'} style={{ background: 'none', border: 'none', color: filter === 'land' ? 'var(--orange)' : 'var(--muted-text)', cursor: 'pointer', fontWeight: 'bold', whiteSpace: 'nowrap' }}>Lands & Plots</button>
+            <button onClick={() => setFilter('commercial')} className={filter === 'commercial' ? 'text-label' : 'text-body-sm'} style={{ background: 'none', border: 'none', color: filter === 'commercial' ? 'var(--orange)' : 'var(--muted-text)', cursor: 'pointer', fontWeight: 'bold', whiteSpace: 'nowrap' }}>Commercial</button>
           </div>
 
           {loading ? (

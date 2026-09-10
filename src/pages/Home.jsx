@@ -140,7 +140,7 @@ const Home = () => {
         <div className="container">
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 2fr', gap: '4rem', alignItems: 'start' }}>
             
-            <div style={{ position: 'sticky', top: '120px' }}>
+            <div className="sticky-desktop">
               <RevealText>
                 <span className="orange-slash">/</span>
                 <span className="text-label">
