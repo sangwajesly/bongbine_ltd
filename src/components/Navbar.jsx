@@ -57,9 +57,9 @@ const Navbar = () => {
 
         {/* Desktop CTA */}
         <div className="desktop-cta">
-          <Link to="/contact" className="btn-primary">
+          <Link to="/contact" className="btn-primary" style={{ padding: '0.6rem 1.25rem', fontSize: '0.85rem' }}>
             Contact Us
-            <ArrowRight size={16} />
+            <ArrowRight size={14} />
           </Link>
         </div>
 
