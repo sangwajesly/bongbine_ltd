@@ -4,6 +4,7 @@ import { db } from '../firebase/config';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import PageHero from '../components/PageHero';
+import { formatPrice } from '../utils/formatPrice';
 
 const ShowcaseGallery = ({ masterCategory }) => {
   const [properties, setProperties] = useState([]);
@@ -131,7 +132,7 @@ const ShowcaseGallery = ({ masterCategory }) => {
                     </div>
                     <div style={{ marginTop: 'auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderTop: '1px solid var(--border-color)', paddingTop: '1rem' }}>
                       <span style={{ fontSize: '1.25rem', fontWeight: '800', color: 'var(--orange)' }}>
-                        {property.price || 'Contact Us'}
+                        {property.price ? formatPrice(property.price) : 'Contact Us'}
                       </span>
                       <Link to={`/properties/${property.id}`} className="text-label" style={{ color: 'var(--navy)', textDecoration: 'none' }}>
                         View Details &rarr;

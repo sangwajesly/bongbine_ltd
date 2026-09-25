@@ -4,6 +4,7 @@ import { db } from '../firebase/config';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { RevealText, RevealImage } from '../components/EditorialReveal';
+import { formatPrice } from '../utils/formatPrice';
 
 const PropertyDetails = () => {
   const { id } = useParams();
@@ -89,7 +90,7 @@ const PropertyDetails = () => {
                 <div style={{ backgroundColor: 'var(--white)', color: 'var(--navy)', padding: '2.5rem', borderRadius: '8px', border: '1px solid var(--border-color)', position: 'sticky', top: '100px', boxShadow: '0 10px 30px rgba(0,0,0,0.05)' }}>
                   <h3 style={{ fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '2px', color: 'var(--muted-text)', marginBottom: '0.5rem', fontWeight: 'bold' }}>Listing Price</h3>
                   <div style={{ fontSize: '2.5rem', fontFamily: 'var(--font-heading)', marginBottom: '2rem', color: 'var(--orange)' }}>
-                    {property.price}
+                    {property.price ? formatPrice(property.price) : 'Contact Us'}
                   </div>
                   
                   <h4 style={{ fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '1px', color: 'var(--muted-text)', marginBottom: '1rem', fontWeight: 'bold' }}>Contact Us</h4>

@@ -5,6 +5,7 @@ import { collection, getDocs, orderBy, query, limit } from 'firebase/firestore';
 import { db } from '../firebase/config';
 import { COMPANY_INFO, BUSINESS_DIVISIONS, CORE_VALUES } from '../data/companyData';
 import { RevealText, RevealImage, RevealLine } from '../components/EditorialReveal';
+import { formatPrice } from '../utils/formatPrice';
 
 const Home = () => {
   const [featuredItems, setFeaturedItems] = useState([]);
@@ -161,7 +162,7 @@ const Home = () => {
                     </div>
                     <div style={{ marginTop: 'auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderTop: '1px solid var(--border-color)', paddingTop: '1rem' }}>
                       <span style={{ fontSize: '1.1rem', fontWeight: '800', color: 'var(--orange)' }}>
-                        {item.price || 'Contact Us'}
+                        {item.price ? formatPrice(item.price) : 'Contact Us'}
                       </span>
                       <Link to={`/properties/${item.id}`} className="text-label" style={{ color: 'var(--navy)', textDecoration: 'none' }}>
                         Details &rarr;

@@ -4,13 +4,11 @@ import { Menu, X, ArrowRight } from 'lucide-react';
 import Logo from './Logo';
 
 const navLinks = [
-  { name: 'Home', path: '/' },
   { name: 'About', path: '/about' },
   { name: 'Properties', path: '/properties' },
   { name: 'House Plans', path: '/plans' },
   { name: 'Past Projects', path: '/projects' },
   { name: 'Services', path: '/services' },
-  { name: 'Contact', path: '/contact' },
 ];
 
 const Navbar = () => {
