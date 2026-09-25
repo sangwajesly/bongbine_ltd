@@ -81,7 +81,8 @@ const AdminDashboard = () => {
               <table style={{ width: '100%', borderCollapse: 'collapse', minWidth: '700px' }}>
                 <thead>
                   <tr style={{ backgroundColor: '#f1f5f9', borderBottom: '1px solid var(--border-color)', textAlign: 'left' }}>
-                    <th style={{ padding: '1rem 1.5rem', fontWeight: 'bold', color: 'var(--navy)' }}>Property</th>
+                    <th style={{ padding: '1rem 1.5rem', fontWeight: 'bold', color: 'var(--navy)' }}>Item</th>
+                    <th style={{ padding: '1rem 1.5rem', fontWeight: 'bold', color: 'var(--navy)' }}>Division</th>
                     <th style={{ padding: '1rem 1.5rem', fontWeight: 'bold', color: 'var(--navy)' }}>Type</th>
                     <th style={{ padding: '1rem 1.5rem', fontWeight: 'bold', color: 'var(--navy)' }}>Status</th>
                     <th style={{ padding: '1rem 1.5rem', fontWeight: 'bold', color: 'var(--navy)' }}>Actions</th>
@@ -94,7 +95,10 @@ const AdminDashboard = () => {
                         <div style={{ fontWeight: 'bold', color: property.status === 'paused' ? 'var(--muted-text)' : 'var(--navy)', marginBottom: '0.25rem' }}>
                           {property.title}
                         </div>
-                        <div style={{ fontSize: '0.85rem', color: 'var(--muted-text)' }}>{property.price} &bull; {property.location}</div>
+                        <div style={{ fontSize: '0.85rem', color: 'var(--muted-text)' }}>{property.price && property.price + ' • '} {property.location}</div>
+                      </td>
+                      <td style={{ padding: '1rem 1.5rem', textTransform: 'capitalize', color: 'var(--muted-text)' }}>
+                        {property.masterCategory === 'plan' ? 'House Plan' : property.masterCategory === 'contract' ? 'Finished Contract' : 'Real Estate'}
                       </td>
                       <td style={{ padding: '1rem 1.5rem', textTransform: 'capitalize' }}>{property.type}</td>
                       <td style={{ padding: '1rem 1.5rem' }}>

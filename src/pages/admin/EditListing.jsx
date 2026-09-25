@@ -11,6 +11,7 @@ const EditListing = () => {
   const { id } = useParams();
   const [formData, setFormData] = useState({
     title: '',
+    masterCategory: 'property',
     type: 'house',
     price: '',
     location: '',
@@ -33,6 +34,7 @@ const EditListing = () => {
           const data = docSnap.data();
           setFormData({
             title: data.title || '',
+            masterCategory: data.masterCategory || 'property',
             type: data.type || 'house',
             price: data.price || '',
             location: data.location || '',
@@ -136,14 +138,24 @@ const EditListing = () => {
           animate={{ opacity: 1, y: 0 }}
           style={{ backgroundColor: 'var(--white)', borderRadius: '8px', padding: '3rem', boxShadow: '0 4px 15px rgba(0,0,0,0.03)' }}
         >
-          <h1 style={{ fontFamily: 'var(--font-heading)', color: 'var(--navy)', fontSize: '2rem', marginBottom: '2rem' }}>Edit Listing</h1>
+          <h1 style={{ fontFamily: 'var(--font-heading)', color: 'var(--navy)', fontSize: '2rem', marginBottom: '2rem' }}>Edit Item</h1>
           
           {error && <div style={{ backgroundColor: '#fee2e2', color: '#dc2626', padding: '1rem', borderRadius: '4px', marginBottom: '1.5rem' }}>{error}</div>}
 
           <form onSubmit={handleSubmit} style={{ display: 'grid', gap: '1.5rem' }}>
-            <div>
-              <label style={labelStyle}>Title</label>
-              <input type="text" name="title" required value={formData.title} onChange={handleInputChange} style={inputStyle} />
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
+              <div>
+                <label style={labelStyle}>Division (Category)</label>
+                <select name="masterCategory" value={formData.masterCategory} onChange={handleInputChange} style={inputStyle}>
+                  <option value="property">Real Estate for Sale</option>
+                  <option value="plan">House Plan / Blueprint</option>
+                  <option value="contract">Finished Construction Contract</option>
+                </select>
+              </div>
+              <div>
+                <label style={labelStyle}>Title</label>
+                <input type="text" name="title" required value={formData.title} onChange={handleInputChange} style={inputStyle} />
+              </div>
             </div>
 
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
@@ -156,8 +168,8 @@ const EditListing = () => {
                 </select>
               </div>
               <div>
-                <label style={labelStyle}>Price</label>
-                <input type="text" name="price" required value={formData.price} onChange={handleInputChange} style={inputStyle} />
+                <label style={labelStyle}>Price {formData.masterCategory === 'contract' ? '(Optional)' : ''}</label>
+                <input type="text" name="price" required={formData.masterCategory !== 'contract'} value={formData.price} onChange={handleInputChange} style={inputStyle} />
               </div>
             </div>
 

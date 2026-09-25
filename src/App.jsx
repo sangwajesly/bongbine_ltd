@@ -13,7 +13,7 @@ import Services from "./pages/Services";
 import OurBusiness from "./pages/OurBusiness";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
-import Properties from "./pages/Properties";
+import ShowcaseGallery from "./pages/ShowcaseGallery";
 import PropertyDetails from "./pages/PropertyDetails";
 import EditListing from "./pages/admin/EditListing";
 import WhatsAppButton from "./components/WhatsAppButton";
@@ -41,7 +41,9 @@ function App() {
               <Route path="/services" element={<Services />} />
               <Route path="/our-business" element={<OurBusiness />} />
               <Route path="/contact" element={<Contact />} />
-              <Route path="/properties" element={<Properties />} />
+              <Route path="/properties" element={<ShowcaseGallery masterCategory="property" />} />
+              <Route path="/plans" element={<ShowcaseGallery masterCategory="plan" />} />
+              <Route path="/projects" element={<ShowcaseGallery masterCategory="contract" />} />
               <Route path="/properties/:id" element={<PropertyDetails />} />
               
               {/* Auth Routes */}

@@ -1,10 +1,33 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { collection, getDocs, orderBy, query, limit } from 'firebase/firestore';
+import { db } from '../firebase/config';
 import { COMPANY_INFO, BUSINESS_DIVISIONS, CORE_VALUES } from '../data/companyData';
 import { RevealText, RevealImage, RevealLine } from '../components/EditorialReveal';
 
 const Home = () => {
+  const [featuredItems, setFeaturedItems] = useState([]);
+  const [loadingItems, setLoadingItems] = useState(true);
+
+  useEffect(() => {
+    const fetchFeatured = async () => {
+      try {
+        const q = query(collection(db, "properties"), orderBy("createdAt", "desc"), limit(6));
+        const querySnapshot = await getDocs(q);
+        const allItems = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+        // Filter out paused items and take top 3
+        const activeItems = allItems.filter(p => p.status !== 'paused').slice(0, 3);
+        setFeaturedItems(activeItems);
+      } catch (error) {
+        console.error("Error fetching featured items: ", error);
+      } finally {
+        setLoadingItems(false);
+      }
+    };
+    fetchFeatured();
+  }, []);
+
   return (
     <div>
       {/* 1. ASYMMETRIC HERO SECTION */}
@@ -81,6 +104,76 @@ const Home = () => {
         </div>
       </section>
 
+      {/* FEATURED SHOWCASE */}
+      <section className="py-standard" style={{ backgroundColor: 'var(--white)', borderBottom: '1px solid var(--border-color)' }}>
+        <div className="container">
+          <RevealText>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '3rem' }}>
+              <div>
+                <span className="orange-slash">/</span>
+                <span className="text-label">Latest Listings</span>
+                <h2 className="text-heading-md" style={{ marginTop: '1rem' }}>Featured Showcase</h2>
+              </div>
+              <Link to="/properties" className="text-label" style={{ color: 'var(--navy)', textDecoration: 'none', borderBottom: '2px solid var(--orange)', paddingBottom: '4px' }}>
+                View All &rarr;
+              </Link>
+            </div>
+          </RevealText>
+
+          {loadingItems ? (
+            <div className="grid-asymmetric">
+              {[1, 2, 3].map((i) => (
+                <div key={i} style={{ backgroundColor: 'var(--light-bg)', borderRadius: '8px', overflow: 'hidden', height: '350px', animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite' }}></div>
+              ))}
+            </div>
+          ) : featuredItems.length === 0 ? (
+            <div style={{ padding: '2rem 0', color: 'var(--muted-text)' }}>No featured items at the moment.</div>
+          ) : (
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '2.5rem' }}>
+              {featuredItems.map((item, idx) => (
+                <motion.div 
+                  key={item.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.1, duration: 0.8 }}
+                  style={{ backgroundColor: 'var(--light-bg)', borderRadius: '8px', overflow: 'hidden', border: '1px solid var(--border-color)', display: 'flex', flexDirection: 'column' }}
+                >
+                  <div style={{ height: '240px', overflow: 'hidden', position: 'relative' }}>
+                    <img 
+                      src={item.images[0] || 'https://via.placeholder.com/400x300'} 
+                      alt={item.title} 
+                      style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }}
+                      onMouseOver={e => e.currentTarget.style.transform = 'scale(1.05)'}
+                      onMouseOut={e => e.currentTarget.style.transform = 'scale(1)'}
+                    />
+                    <div style={{ position: 'absolute', top: '1rem', right: '1rem', backgroundColor: 'var(--white)', padding: '0.25rem 0.75rem', borderRadius: '4px', fontSize: '0.75rem', fontWeight: 'bold', textTransform: 'uppercase', color: 'var(--navy)' }}>
+                      {item.masterCategory === 'plan' ? 'House Plan' : item.masterCategory === 'contract' ? 'Project' : 'For Sale'}
+                    </div>
+                  </div>
+                  <div style={{ padding: '1.5rem', flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
+                    <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.25rem', color: 'var(--navy)', marginBottom: '0.5rem', lineHeight: 1.3 }}>
+                      {item.title}
+                    </h3>
+                    <div style={{ color: 'var(--muted-text)', fontSize: '0.9rem', marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                      {item.location}
+                    </div>
+                    <div style={{ marginTop: 'auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderTop: '1px solid var(--border-color)', paddingTop: '1rem' }}>
+                      <span style={{ fontSize: '1.1rem', fontWeight: '800', color: 'var(--orange)' }}>
+                        {item.price || 'Contact Us'}
+                      </span>
+                      <Link to={`/properties/${item.id}`} className="text-label" style={{ color: 'var(--navy)', textDecoration: 'none' }}>
+                        Details &rarr;
+                      </Link>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          )}
+        </div>
+      </section>
       {/* 2. ABOUT BONGBINE */}
       <section className="py-loose" style={{ backgroundColor: 'var(--light-bg)', borderBottom: '1px solid var(--border-color)' }}>
         <div className="container">

@@ -10,6 +10,7 @@ const IMGBB_API_KEY = 'fb4f87cbdcccb259e36e62d200adea30';
 const CreateListing = () => {
   const [formData, setFormData] = useState({
     title: '',
+    masterCategory: 'property',
     type: 'house',
     price: '',
     location: '',
@@ -35,34 +36,17 @@ const CreateListing = () => {
 
   const uploadImages = async () => {
     const uploadPromises = images.map(async (image) => {
-      // Compress the image before uploading!
-      const options = {
-        maxSizeMB: 0.8,
-        maxWidthOrHeight: 1200,
-        useWebWorker: true
-      };
-      
+      const options = { maxSizeMB: 0.8, maxWidthOrHeight: 1200, useWebWorker: true };
       let fileToUpload = image;
-      try {
-        fileToUpload = await imageCompression(image, options);
-      } catch (error) {
-        console.warn("Compression failed, using original", error);
-      }
+      try { fileToUpload = await imageCompression(image, options); } 
+      catch (error) { console.warn("Compression failed", error); }
 
       const data = new FormData();
       data.append('image', fileToUpload);
-      
-      const res = await fetch(`https://api.imgbb.com/1/upload?key=${IMGBB_API_KEY}`, {
-        method: 'POST',
-        body: data
-      });
-      
+      const res = await fetch(`https://api.imgbb.com/1/upload?key=${IMGBB_API_KEY}`, { method: 'POST', body: data });
       const json = await res.json();
-      if (json.success) {
-        return json.data.url;
-      } else {
-        throw new Error('Image upload failed');
-      }
+      if (json.success) return json.data.url;
+      else throw new Error('Image upload failed');
     });
     return Promise.all(uploadPromises);
   };
@@ -110,14 +94,24 @@ const CreateListing = () => {
           animate={{ opacity: 1, y: 0 }}
           style={{ backgroundColor: 'var(--white)', borderRadius: '8px', padding: '3rem', boxShadow: '0 4px 15px rgba(0,0,0,0.03)' }}
         >
-          <h1 style={{ fontFamily: 'var(--font-heading)', color: 'var(--navy)', fontSize: '2rem', marginBottom: '2rem' }}>Add New Listing</h1>
+          <h1 style={{ fontFamily: 'var(--font-heading)', color: 'var(--navy)', fontSize: '2rem', marginBottom: '2rem' }}>Add New Item</h1>
           
           {error && <div style={{ backgroundColor: '#fee2e2', color: '#dc2626', padding: '1rem', borderRadius: '4px', marginBottom: '1.5rem' }}>{error}</div>}
 
           <form onSubmit={handleSubmit} style={{ display: 'grid', gap: '1.5rem' }}>
-            <div>
-              <label style={labelStyle}>Title</label>
-              <input type="text" name="title" required value={formData.title} onChange={handleInputChange} style={inputStyle} placeholder="e.g. Modern 4-Bedroom Villa" />
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
+              <div>
+                <label style={labelStyle}>Division (Category)</label>
+                <select name="masterCategory" value={formData.masterCategory} onChange={handleInputChange} style={inputStyle}>
+                  <option value="property">Real Estate for Sale</option>
+                  <option value="plan">House Plan / Blueprint</option>
+                  <option value="contract">Finished Construction Contract</option>
+                </select>
+              </div>
+              <div>
+                <label style={labelStyle}>Title</label>
+                <input type="text" name="title" required value={formData.title} onChange={handleInputChange} style={inputStyle} placeholder="e.g. Modern 4-Bedroom Villa" />
+              </div>
             </div>
 
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
@@ -130,8 +124,8 @@ const CreateListing = () => {
                 </select>
               </div>
               <div>
-                <label style={labelStyle}>Price</label>
-                <input type="text" name="price" required value={formData.price} onChange={handleInputChange} style={inputStyle} placeholder="e.g. 15,000,000 FCFA" />
+                <label style={labelStyle}>Price {formData.masterCategory === 'contract' ? '(Optional)' : ''}</label>
+                <input type="text" name="price" required={formData.masterCategory !== 'contract'} value={formData.price} onChange={handleInputChange} style={inputStyle} placeholder="e.g. 15,000,000 FCFA" />
               </div>
             </div>
 
@@ -147,7 +141,7 @@ const CreateListing = () => {
 
             <div>
               <label style={labelStyle}>Description</label>
-              <textarea name="description" required rows="5" value={formData.description} onChange={handleInputChange} style={{...inputStyle, resize: 'vertical'}} placeholder="Describe the property..." />
+              <textarea name="description" required rows="5" value={formData.description} onChange={handleInputChange} style={{...inputStyle, resize: 'vertical'}} placeholder="Describe the item..." />
             </div>
 
             <div>
@@ -157,7 +151,7 @@ const CreateListing = () => {
             </div>
 
             <button type="submit" disabled={loading} className="btn-primary" style={{ marginTop: '1rem', opacity: loading ? 0.7 : 1 }}>
-              {loading ? 'Publishing Listing...' : 'Publish Listing'}
+              {loading ? 'Publishing...' : 'Publish Item'}
             </button>
           </form>
         </motion.div>
