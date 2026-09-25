@@ -89,6 +89,7 @@ const PropertyDetails = () => {
               <RevealText>
                 <div style={{ backgroundColor: 'var(--white)', color: 'var(--navy)', padding: '2.5rem', borderRadius: '8px', border: '1px solid var(--border-color)', position: 'sticky', top: '100px', boxShadow: '0 10px 30px rgba(0,0,0,0.05)' }}>
                   <h3 style={{ fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '2px', color: 'var(--muted-text)', marginBottom: '0.5rem', fontWeight: 'bold' }}>Listing Price</h3>
+                  <span style={{ fontSize: '0.75rem', fontWeight: 'bold', color: 'var(--muted-text)', textTransform: 'uppercase', letterSpacing: '1.5px' }}>FCFA</span>
                   <div style={{ fontSize: '2.5rem', fontFamily: 'var(--font-heading)', marginBottom: '2rem', color: 'var(--orange)' }}>
                     {property.price ? formatPrice(property.price) : 'Contact Us'}
                   </div>

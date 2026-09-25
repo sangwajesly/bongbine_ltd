@@ -2,13 +2,10 @@ export const formatPrice = (priceStr) => {
   if (!priceStr) return '';
   const str = String(priceStr);
   
-  // Format numbers with commas (e.g., 190000000 -> 190,000,000)
-  const formatted = str.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  // Strip out any existing "FCFA" / "Franc" text so we only format the number
+  const numOnly = str.replace(/[^0-9]/g, '');
+  if (!numOnly) return str; // If no digits, return as-is
   
-  // If there's a number but no currency mentioned, append FCFA
-  if (!formatted.toLowerCase().includes('fcfa') && !formatted.toLowerCase().includes('franc') && formatted.match(/\d/)) {
-    return `${formatted} FCFA`;
-  }
-  
-  return formatted;
+  // Add commas every 3 digits
+  return numOnly.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 };

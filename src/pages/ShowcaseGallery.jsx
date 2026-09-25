@@ -131,8 +131,11 @@ const ShowcaseGallery = ({ masterCategory }) => {
                       {property.location}
                     </div>
                     <div style={{ marginTop: 'auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderTop: '1px solid var(--border-color)', paddingTop: '1rem' }}>
-                      <span style={{ fontSize: '1.25rem', fontWeight: '800', color: 'var(--orange)' }}>
-                        {property.price ? formatPrice(property.price) : 'Contact Us'}
+                      <span style={{ display: 'flex', flexDirection: 'column' }}>
+                        <span style={{ fontSize: '0.65rem', fontWeight: 'bold', color: 'var(--muted-text)', textTransform: 'uppercase', letterSpacing: '1px' }}>FCFA</span>
+                        <span style={{ fontSize: '1.25rem', fontWeight: '800', color: 'var(--orange)' }}>
+                          {formatPrice(property.price)}
+                        </span>
                       </span>
                       <Link to={`/properties/${property.id}`} className="text-label" style={{ color: 'var(--navy)', textDecoration: 'none' }}>
                         View Details &rarr;
